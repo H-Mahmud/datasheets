@@ -13,4 +13,10 @@
 
 defined('ABSPATH') || exit();
 
+// Includes
+include_once (plugin_dir_path(__FILE__) . 'inc/data-table.php');
 include_once (plugin_dir_path(__FILE__) . 'inc/data-cpt.php');
+include_once (plugin_dir_path(__FILE__) . 'inc/data-fields.php');
+
+// Hooks
+register_activation_hook(__FILE__, 'datasheets_data_table');
