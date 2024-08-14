@@ -105,28 +105,37 @@ function save_datasheets_data_fields_meta_box_data($post_id)
     // manufacturer_name and part_number must be defined to execute the data store query 
     if (!isset($_POST['manufacturer_name']) || empty($_POST['manufacturer_name']) || !isset($_POST['part_number']) || empty($_POST['part_number'])) {
 
-        add_settings_error(
-            'data_meta_field_errors',
-            'data_meta_field_error',
-            'Manufacturer name and Part Number fields cannot be empty',
-            'error'
-        );
-
-        set_transient('data_meta_errors', get_settings_errors('data_meta_field_errors'), 30);
-
-        wp_safe_redirect(add_query_arg('failed_message', 'data_meta_error', get_edit_post_link($post_id, 'url')));
-        exit;
-
+        ds_error_editor_admin('Manufacturer name and Part Number fields cannot be empty', $post_id);
     }
 
-    // Check and sanitize the custom field input
-    // if (isset($_POST['manufacturer_name'])) {
-    //     $sanitized_value = sanitize_text_field($_POST['manufacturer_name']);
-    //     update_post_meta($post_id, 'manufacturer_name', $sanitized_value);
-    // } else {
-    //     // If the field is empty, delete the meta key
-    //     delete_post_meta($post_id, 'manufacturer_name');
-    // }
+    $title = isset($_POST['post_title']) ? sanitize_text_field($_POST['post_title']) : '';
+    $status = isset($_POST['post_status']) ? sanitize_text_field($_POST['post_status']) : '';
+
+    $manufacturer_name = sanitize_text_field($_POST['manufacturer_name']);
+    $part_number = sanitize_text_field($_POST['part_number']);
+    $name = sanitize_title($manufacturer_name . $part_number);
+    $file_name = isset($_POST['file_name']) ? sanitize_text_field($_POST['file_name']) : '';
+    $description = isset($_POST['description']) ? sanitize_text_field($_POST['description']) : '';
+    $source_url = isset($_POST['source_url']) ? sanitize_text_field($_POST['source_url']) : '';
+    $file_url = isset($_POST['file_url']) ? sanitize_text_field($_POST['file_url']) : '';
+
+    $data = array(
+        'post_id' => $post_id,
+        'name' => $name,
+        'title' => $title,
+        'manufacturer_name' => $manufacturer_name,
+        'part_number' => $part_number,
+        'file_name' => $file_name,
+        'description' => $description,
+        'source_url' => $source_url,
+        'file_url' => $file_url,
+        'status' => $status
+    );
+
+    $ds_insert = ds_insert_data($data);
+    if (!$ds_insert) {
+        ds_error_editor_admin('Failed to insert datasheet data', $post_id);
+    }
 }
 add_action('save_post', 'save_datasheets_data_fields_meta_box_data');
 
