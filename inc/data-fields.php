@@ -120,7 +120,7 @@ function save_datasheets_data_fields_meta_box_data($post_id)
 
     $manufacturer_name = sanitize_text_field($_POST['manufacturer_name']);
     $part_number = sanitize_text_field($_POST['part_number']);
-    $name = sanitize_title($manufacturer_name . $part_number);
+    $name = sanitize_title($manufacturer_name . '-' . $part_number);
     $file_name = isset($_POST['file_name']) ? sanitize_text_field($_POST['file_name']) : '';
     $description = isset($_POST['description']) ? sanitize_text_field($_POST['description']) : '';
     $source_url = isset($_POST['source_url']) ? sanitize_text_field($_POST['source_url']) : '';
