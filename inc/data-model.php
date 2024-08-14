@@ -1,4 +1,10 @@
 <?php
+/**
+ * Insert a new data row on data table
+ * 
+ * @param array $data
+ * @return bool|int
+ */
 function ds_insert_data($data)
 {
     global $wpdb;
@@ -20,6 +26,13 @@ function ds_insert_data($data)
     return $wpdb->insert($table_name, $data, $format);
 }
 
+/**
+ * Update a Data row by data id
+ * 
+ * @param int $id
+ * @param array $data
+ * @return bool|int
+ */
 function ds_update_data($id, $data)
 {
     global $wpdb;
@@ -41,7 +54,12 @@ function ds_update_data($id, $data)
 }
 
 
-
+/**
+ * Get data id by post_id purpose to check does data exist
+ * 
+ * @param int $post_id
+ * @return string|null
+ */
 function ds_get_data_id($post_id)
 {
     global $wpdb;
@@ -49,6 +67,12 @@ function ds_get_data_id($post_id)
     return $wpdb->get_var($wpdb->prepare("SELECT id FROM {$wpdb->prefix}data WHERE post_id=%d LIMIT 1", $post_id));
 }
 
+/**
+ * Get a single data row from data by post_id
+ * 
+ * @param int $post_id
+ * @return array|null
+ */
 function ds_get_data($post_id)
 {
     global $wpdb;
