@@ -47,10 +47,10 @@ function datasheets_data_fields_cb($post)
         </tr>
         <tr>
             <th>
-                <label for="pdf_name">PDF Name</label>
+                <label for="file_name">File Name</label>
             </th>
             <td>
-                <input type="text" name="pdf_name" id="pdf_name" class="regular-text">
+                <input type="text" name="file_name" id="file_name" class="regular-text">
             </td>
         </tr>
         <tr>
