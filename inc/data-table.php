@@ -1,4 +1,5 @@
 <?php
+defined('ABSPATH') || exit();
 /**
  * Create Datasheets data custom table
  * 
@@ -29,6 +30,6 @@ function datasheets_data_table()
         KEY part_number (part_number)
     ) $charset_collate;";
 
-    require_once (ABSPATH . 'wp-admin/includes/upgrade.php');
+    require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
     dbDelta($sql);
 }

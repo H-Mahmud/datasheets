@@ -1,4 +1,5 @@
 <?php
+defined('ABSPATH') || exit();
 /**
  * Create a Custom Data Post Type
  * 

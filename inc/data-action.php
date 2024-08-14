@@ -1,4 +1,5 @@
 <?php
+defined('ABSPATH') || exit();
 /**
  * Delete Data row from data table together deleting data post from post table
  * 

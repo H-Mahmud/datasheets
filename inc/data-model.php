@@ -1,4 +1,5 @@
 <?php
+defined('ABSPATH') || exit();
 /**
  * Insert a new data row on data table
  * 

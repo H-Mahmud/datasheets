@@ -1,5 +1,5 @@
 <?php
-
+defined('ABSPATH') || exit();
 /**
  * Add datasheets data meta box on data post editor
  * 
