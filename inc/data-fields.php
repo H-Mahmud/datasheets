@@ -132,10 +132,15 @@ function save_datasheets_data_fields_meta_box_data($post_id)
         'status' => $status
     );
 
-    $ds_insert = ds_insert_data($data);
-    if (!$ds_insert) {
-        ds_error_editor_admin('Failed to insert datasheet data', $post_id);
+    $data_id = ds_get_data_id($post_id);
+    if ($data_id) {
+        unset($data['post_id']);
+        ds_update_data($data_id, $data);
+        return;
     }
+
+    if (!ds_insert_data($data))
+        ds_error_editor_admin('Failed to insert datasheet data', $post_id);
 }
 add_action('save_post', 'save_datasheets_data_fields_meta_box_data');
 
