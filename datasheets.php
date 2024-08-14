@@ -36,3 +36,12 @@ function ds_error_editor_admin($message = '', $post_id)
     wp_safe_redirect(add_query_arg('failed_message', 'data_meta_error', get_edit_post_link($post_id, 'url')));
     exit;
 }
+
+
+function ds_the_data($data, $key)
+{
+    if (!$data)
+        return;
+    echo isset($data[$key]) ? $data[$key] : '';
+
+}

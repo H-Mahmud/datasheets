@@ -29,20 +29,23 @@ function datasheets_data_fields_cb($post)
 {
     wp_nonce_field(basename(__FILE__), 'datasheets_data_fields_nonce');
 
+    $data = ds_get_data($post->ID);
     ?>
     <table class="form-table">
         <tr>
             <th>
                 <label for="manufacturer_name">Manufacturer Name</label>
             </th>
-            <td><input type="text" name="manufacturer_name" id="manufacturer_name" class="regular-text"></td>
+            <td><input type="text" name="manufacturer_name" id="manufacturer_name"
+                    value="<?php ds_the_data($data, 'manufacturer_name'); ?>" class="regular-text"></td>
         </tr>
         <tr>
             <th>
                 <label for="part_number">Part Number</label>
             </th>
             <td>
-                <input type="text" name="part_number" id="part_number" class="regular-text">
+                <input type="text" name="part_number" id="part_number" value="<?php ds_the_data($data, 'part_number'); ?>"
+                    class="regular-text">
             </td>
         </tr>
         <tr>
@@ -50,7 +53,8 @@ function datasheets_data_fields_cb($post)
                 <label for="file_name">File Name</label>
             </th>
             <td>
-                <input type="text" name="file_name" id="file_name" class="regular-text">
+                <input type="text" name="file_name" id="file_name" value="<?php ds_the_data($data, 'file_name'); ?>"
+                    class="regular-text">
             </td>
         </tr>
         <tr>
@@ -58,7 +62,8 @@ function datasheets_data_fields_cb($post)
                 <label for="description">Description</label>
             </th>
             <td>
-                <textarea name="description" id="description" rows="2" class="regular-text"></textarea>
+                <textarea name="description" id="description" rows="2"
+                    class="regular-text"><?php ds_the_data($data, 'description'); ?></textarea>
             </td>
         </tr>
         <tr>
@@ -66,7 +71,8 @@ function datasheets_data_fields_cb($post)
                 <label for="source_url">Source Url</label>
             </th>
             <td>
-                <input type="text" name="source_url" id="source_url" class="large-text">
+                <input type="text" name="source_url" id="source_url" value="<?php ds_the_data($data, 'source_url'); ?>"
+                    class="large-text">
             </td>
         </tr>
         <tr>
@@ -74,7 +80,8 @@ function datasheets_data_fields_cb($post)
                 <label for="file_url">File Url</label>
             </th>
             <td>
-                <input type="text" name="file_url" id="file_url" class="large-text">
+                <input type="text" name="file_url" id="file_url" value="<?php ds_the_data($data, 'file_url'); ?>"
+                    class="large-text">
             </td>
         </tr>
     </table>
