@@ -24,6 +24,8 @@ include_once(plugin_dir_path(__FILE__) . 'inc/data-action.php');
 include_once(plugin_dir_path(__FILE__) . 'inc/data-cpt.php');
 include_once(plugin_dir_path(__FILE__) . 'inc/data-fields.php');
 
+include(plugin_dir_path(__FILE__) . 'inc/import/import-admin.php');
+
 
 /**
  * Load search template for data search
