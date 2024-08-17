@@ -18,7 +18,27 @@ include_once(plugin_dir_path(__FILE__) . 'inc/data-table.php');
 register_activation_hook(__FILE__, 'datasheets_data_table');
 include_once(plugin_dir_path(__FILE__) . 'inc/helper-func.php');
 include_once(plugin_dir_path(__FILE__) . 'inc/data-model.php');
+include_once(plugin_dir_path(__FILE__) . 'inc/data-query.php');
 include_once(plugin_dir_path(__FILE__) . 'inc/data-action.php');
 
 include_once(plugin_dir_path(__FILE__) . 'inc/data-cpt.php');
 include_once(plugin_dir_path(__FILE__) . 'inc/data-fields.php');
+
+
+/**
+ * Load search template for data search
+ * 
+ * @param string $template
+ * @return string
+ */
+function ds_load_data_search_template($template)
+{
+    if (is_search() && 'data' === get_query_var('post_type')) {
+        $new_template = plugin_dir_path(__FILE__) . 'templates/search-data.php';
+        if (file_exists($new_template)) {
+            return $new_template;
+        }
+    }
+    return $template;
+}
+add_filter('template_include', 'ds_load_data_search_template');
