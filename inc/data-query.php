@@ -74,9 +74,24 @@ class Data_Query
         return isset($this->current_data->name) ? esc_html($this->current_data->name) : '';
     }
 
+    public function get_manufacturer_name()
+    {
+        return isset($this->current_data->manufacturer_name) ? esc_html($this->current_data->manufacturer_name) : '';
+    }
+
+    public function get_part_number()
+    {
+        return isset($this->current_data->part_number) ? esc_html($this->current_data->part_number) : '';
+    }
+
     public function the_file_name()
     {
         return isset($this->current_data->file_name) ? esc_html($this->current_data->file_name) : '';
+    }
+
+    public function get_description()
+    {
+        return isset($this->current_data->description) ? esc_html($this->current_data->description) : '';
     }
 
     public function found_data()
