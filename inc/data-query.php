@@ -64,12 +64,12 @@ class Data_Query
             $this->current_data = $this->results[$this->current_index];
     }
 
-    public function the_title()
+    public function get_title()
     {
         return isset($this->current_data->title) ? esc_html($this->current_data->title) : '';
     }
 
-    public function the_name()
+    public function get_name()
     {
         return isset($this->current_data->name) ? esc_html($this->current_data->name) : '';
     }
@@ -84,7 +84,7 @@ class Data_Query
         return isset($this->current_data->part_number) ? esc_html($this->current_data->part_number) : '';
     }
 
-    public function the_file_name()
+    public function get_file_name()
     {
         return isset($this->current_data->file_name) ? esc_html($this->current_data->file_name) : '';
     }

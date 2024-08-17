@@ -50,15 +50,13 @@ get_header();
                     while ($data_query->have_data()) {
                         $data_query->the_data();
 
-                        $data_query->the_title();
-
                         $part_number = $data_query->get_part_number();
                         $manufacturer_name = $data_query->get_manufacturer_name();
                         $description = $data_query->get_description();
                         $view_document = '';
                         $download_document = '';
-                        $file_name = $data_query->the_title();
-                        $title = $data_query->the_title();
+                        $file_name = $data_query->get_file_name();
+                        $title = $data_query->get_title();
 
                         echo <<<HTML
                         <tr>
