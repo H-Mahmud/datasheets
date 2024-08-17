@@ -13,6 +13,9 @@
 
 defined('ABSPATH') || exit();
 
+defined('DATASHEETS_DIR_PATH') || define('DATASHEETS_DIR_PATH', plugin_dir_path(__FILE__));
+defined('DATASHEETS_DIR_URL') || define('DATASHEETS_DIR_URL', plugin_dir_url(__FILE__));
+
 // Includes
 include_once(plugin_dir_path(__FILE__) . 'inc/data-table.php');
 register_activation_hook(__FILE__, 'datasheets_data_table');
