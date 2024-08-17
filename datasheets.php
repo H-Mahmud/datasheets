@@ -24,8 +24,7 @@ include_once(plugin_dir_path(__FILE__) . 'inc/data-model.php');
 include_once(plugin_dir_path(__FILE__) . 'inc/data-query.php');
 include_once(plugin_dir_path(__FILE__) . 'inc/data-action.php');
 
-include_once(plugin_dir_path(__FILE__) . 'inc/data-cpt.php');
-include_once(plugin_dir_path(__FILE__) . 'inc/data-fields.php');
+include_once(plugin_dir_path(__FILE__) . 'inc/data-admin.php');
 
 include(plugin_dir_path(__FILE__) . 'inc/import/import-admin.php');
 
