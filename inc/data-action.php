@@ -6,7 +6,7 @@ defined('ABSPATH') || exit();
  * @param int $post_id
  * @return void
  */
-function delete_custom_table_row_on_post_delete($post_id)
+function delete_data_record_on_post_delete($post_id)
 {
     global $wpdb;
 
@@ -23,4 +23,4 @@ function delete_custom_table_row_on_post_delete($post_id)
     );
 }
 
-add_action('before_delete_post', 'delete_custom_table_row_on_post_delete');
+add_action('before_delete_post', 'delete_data_record_on_post_delete');
