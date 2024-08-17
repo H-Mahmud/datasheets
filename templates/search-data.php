@@ -52,9 +52,9 @@ get_header();
 
                         $data_query->the_title();
 
-                        $part_number = $data_query->the_name();
-                        $manufacturer_name = $data_query->the_file_name();
-                        $description = get_post_meta(get_the_ID(), 'description', true);
+                        $part_number = $data_query->get_part_number();
+                        $manufacturer_name = $data_query->get_manufacturer_name();
+                        $description = $data_query->get_description();
                         $view_document = '';
                         $download_document = '';
                         $file_name = $data_query->the_title();
