@@ -1,1 +1,20 @@
+.import-container {
+    max-width: 480px;
+    background-color: #FFF;
+    margin: 2rem auto;
+    padding: 2rem;
+    border-radius: 10px;
+    border: 1px solid #0000002e;
+}
 
+.import-container .title {
+    text-align: center;
+}
+
+.import-container .remove-csv {
+    text-decoration: none;
+    margin-left: 6px;
+    font-size: 16px;
+    font-weight: 500;
+    display: none;
+}
