@@ -18,5 +18,5 @@ function ds_import_menu()
 
 function ds_import_admin_cb()
 {
-
+    include_once DATASHEETS_DIR_PATH . 'templates/admin/import-data-page.php';
 }
