@@ -30,4 +30,12 @@ function datasheets_admin_enqueues($page_slug)
     wp_enqueue_style('datasheets.script', DATASHEETS_DIR_URL . 'assets/datasheets.admin.css', [], '1.0.0', 'all');
     wp_enqueue_media();
     wp_enqueue_script('datasheets.style', DATASHEETS_DIR_URL . 'assets/datasheets.admin.js', ['jquery'], '1.0.0', ['in_footer' => true]);
+    wp_localize_script(
+        'datasheets.script',
+        'Datasheets',
+        array(
+            'ajaxUrl' => admin_url('admin-ajax.php'),
+            'nonce' => wp_create_nonce('_import-csv')
+        )
+    );
 }
