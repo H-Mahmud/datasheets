@@ -32,6 +32,8 @@ jQuery(document).ready(function ($) {
                     .val(attachment.id)
                     .next()
                     .show();
+
+                readCSVHeader(attachment.id);
             })
             .open();
     });
@@ -52,4 +54,21 @@ jQuery(document).ready(function ($) {
             .html("Upload CSV");
         return false;
     });
+
+    /**
+     * Read CSV Header
+     */
+    function readCSVHeader(csvId) {
+        $.ajax({
+            type: "POST",
+            url: Datasheets.ajaxUrl,
+            data: {
+                action: "read_csv_header",
+                nonce: Datasheets.nonce,
+                csvId: csvId,
+            },
+        }).done(function (msg) {
+            console.log(msg);
+        });
+    }
 });
