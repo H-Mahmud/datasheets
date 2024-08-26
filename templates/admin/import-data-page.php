@@ -16,6 +16,11 @@
                         </div>
                     </td>
                 </tr>
+                <tr>
+                    <td colspan="2">
+                        <p id="header-parser-error"></p>
+                    </td>
+                </tr>
                 <tbody class="data-mapping-form">
                     <tr>
                         <th><label for="title">Title</label></th>

@@ -53,6 +53,7 @@ jQuery(document).ready(function ($) {
             .addClass("button")
             .html("Upload CSV");
         $(".data-mapping-form").hide();
+        $('#header-parser-error').hide();
 
         return false;
     });
@@ -69,9 +70,26 @@ jQuery(document).ready(function ($) {
                 nonce: Datasheets.nonce,
                 csvId: csvId,
             },
-        }).done(function (msg) {
-            console.log(msg);
+        }).done(function (response) {
+            const options = getMappingOptions(response.data[0]);
+
+            $('.data-mapping-form td select').html(options);
+
             $(".data-mapping-form").show();
+        }).fail(function (jqXHR, textStatus, errorThrown) {
+            $('#header-parser-error').html(jqXHR.responseJSON.data.message).show();
         });
+    }
+
+    function getMappingOptions(optionList) {
+        let options = '';
+
+        options += '<option value="">Select Field</option>';
+
+        optionList.forEach(item => {
+            options += `<option value="${item}">${item}</option>`;
+        });
+
+        return options;
     }
 });

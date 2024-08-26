@@ -22,3 +22,7 @@
 .import-container .data-mapping-form {
     display: none;
 }
+
+.import-container #header-parser-error {
+    color: #b32d2e;
+}
