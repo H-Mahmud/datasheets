@@ -52,6 +52,8 @@ jQuery(document).ready(function ($) {
             .prev()
             .addClass("button")
             .html("Upload CSV");
+        $(".data-mapping-form").hide();
+
         return false;
     });
 
@@ -69,6 +71,7 @@ jQuery(document).ready(function ($) {
             },
         }).done(function (msg) {
             console.log(msg);
+            $(".data-mapping-form").show();
         });
     }
 });

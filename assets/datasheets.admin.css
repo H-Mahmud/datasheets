@@ -18,3 +18,7 @@
     font-weight: 500;
     display: none;
 }
+
+.import-container .data-mapping-form {
+    display: none;
+}
