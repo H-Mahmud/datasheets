@@ -27,6 +27,7 @@ include_once(plugin_dir_path(__FILE__) . 'inc/data-action.php');
 include_once(plugin_dir_path(__FILE__) . 'inc/data-admin.php');
 
 include(plugin_dir_path(__FILE__) . 'inc/import/import-admin.php');
+include(plugin_dir_path(__FILE__) . 'inc/import/class-import-data.php');
 
 
 /**
